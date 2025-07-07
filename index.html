@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To do list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe5b4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ff7f50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 20%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f4a460;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #fff8dc;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        li:hover {
+            background-color: #f5deb3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>To Do List</h2>
+        <input type="text" id="myInput" placeholder="Add a new task">
+        <button id="addButton">Add</button>
+    </div>
+
+    <ul id="myList"></ul>
+
+    <script>
+        window.onload = function () {
+            document.getElementById("addButton").onclick = function () {
+                var input = document.getElementById("myInput").value;
+                if (input !== "") {
+                    var li = document.createElement("li");
+                    li.innerHTML = input;
+                    li.onclick = function () {
+                        li.style.textDecoration = "line-through";
+                    }
+                    document.getElementById("myList").appendChild(li);
+                    document.getElementById("myInput").value = "";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
